@@ -15,14 +15,36 @@ list_t *list_alloc() {
 }
 
 void list_free(list_t *l) {
+	// printf("Hello world");
   node_t * head = l->head;
-  node_t *next = head->next;
-  while(head!= NULL) {
-    next = head->next;
-    free(head);
-    head = next;
-  }
-}
+  node_t *nextnode;
+	// node_t *temp = NULL;		
+	
+	while(head != NULL){
+		nextnode = head->next;
+		free(head);
+		head = nextnode;
+	}
+  // while(head != NULL) {
+	// 	 temp = head ;
+	// 	 head = head->next;
+	// 	 free(temp);
+    // nextnode = head->next;
+    // free(head);
+    // head = nextnode;
+		// head = head->next;
+    // nextnode = head->next;
+    // free(head);		
+
+    // head = nextnode;
+		// if (nextnode != NULL){
+		// 	nextnode = nextnode->next;
+		// free(l);
+		}
+  
+
+  // free(head);
+
 
 void list_print(list_t *l) {
   node_t *head = l->head;
@@ -84,16 +106,19 @@ void list_add_at_index(list_t *l, elem value, int index) {
 	node_t* cur_node = (node_t *) malloc(sizeof(node_t));
 	cur_node->value = value;
   node_t *head = l->head, *temp1;
-	node_t *temp = head->next;
-  int count = 0;
-  while (count != (index-1) ) {
+	node_t *temp = NULL;
+  int count = 2;
+	if (index == 1) {
+		cur_node->next = l->head;
+		l->head = cur_node;
+	}
+	else{
+		while (count != (index ) ) {
     head = head->next;
     count += 1;
   }
-	if (count == (index-1)) {
-		temp = head->next;
-		head->next = cur_node;
-		cur_node->next = temp;
+	cur_node->next = head->next;
+	head->next = cur_node;
 	}
 }
 
@@ -117,7 +142,7 @@ elem list_remove_from_front(list_t *l) {
 elem list_remove_at_index(list_t *l, int index) { 
   node_t *head = l->head, *prev;
 	node_t *temp = head->next;
-  int count = 0;
+  int count = 1;
   while (head != NULL && count != index ) {
 		prev = head;
     head = head->next;
@@ -143,17 +168,17 @@ bool list_is_in(list_t *l, elem value) {
 elem list_get_elem_at(list_t *l, int index) {
 	node_t *temp;
 	node_t *head = l->head;
-	int count = 0;
-	while(count != (index-1)){
+	int count = 1;
+	while(count != (index)){
 		head = head->next;
 		count += 1;
 	}
-	return head->next->value;
+	return head->value;
 }
 
 int list_get_index_of(list_t *l, elem value) { 
 	node_t *head = l->head;
-	int count = 0;
+	int count = 1;
 	while(head->value != value) {
 		head = head->next;
 		count += 1;

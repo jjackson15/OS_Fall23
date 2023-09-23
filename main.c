@@ -37,8 +37,8 @@ int main() {
   list_add_to_back(mylist, 190);
 	list_print(mylist);
 	printf("\n");	
-	list_add_at_index(mylist, 93, 12);
-	printf("The list after %d is added at index %d: ", 93, 12);
+	list_add_at_index(mylist, 93, 1);
+	printf("The list after %d is added at index %d: ", 93, 1);
 	list_print(mylist);;
 	printf("\n");
 
@@ -61,7 +61,7 @@ int main() {
   list_print(mylist);
 	printf("\n");
 	printf("The value at index %d is: %d\n", 1, list_get_elem_at(mylist, 1));
-	printf("Value %d is at index: %d\n", 290, list_get_index_of(mylist, 290));
+	printf("Value %d is at index: %d\n", 70, list_get_index_of(mylist, 70));
 
 	list_remove_at_index(mylist, 3);
 	printf("This is the list with index 3 removed: ");
@@ -189,12 +189,12 @@ int main() {
 	printf("Remove from index 3 of the list: ");
 	list_print(mylist);
 	printf("\n");
-  list_remove_at_index(mylist, 1);
-	printf("Remove from index 1 of the list: ");
+  list_remove_at_index(mylist, 2);
+	printf("Remove from index 2 of the list: ");
 	list_print(mylist);
 	printf("\n");
+
 }
-  
 // list_add_to_front(mylist, 10);
 //   list_add_to_front(mylist, 20);
 //   list_add_to_front(mylist, 30);
