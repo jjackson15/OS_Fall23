@@ -25,21 +25,8 @@ void list_free(list_t *l) {
 		free(head);
 		head = nextnode;
 	}
-  // while(head != NULL) {
-	// 	 temp = head ;
-	// 	 head = head->next;
-	// 	 free(temp);
-    // nextnode = head->next;
-    // free(head);
-    // head = nextnode;
-		// head = head->next;
-    // nextnode = head->next;
-    // free(head);		
-
-    // head = nextnode;
-		// if (nextnode != NULL){
-		// 	nextnode = nextnode->next;
-		// free(l);
+	l->head = NULL;
+  
 		}
   
 
@@ -124,19 +111,26 @@ void list_add_at_index(list_t *l, elem value, int index) {
 
 elem list_remove_from_back(list_t *l) { 
 	node_t *curr = l->head;
+	node_t *prev;
 	while(curr->next != NULL) {
+		prev = curr;
 		curr = curr->next;
 	}
+	
 	free(curr);
+	curr = prev;
+	curr->next = NULL;
+
 }
+
 
 elem list_remove_from_front(list_t *l) { 
 	node_t *curr = l->head;
 	node_t *temp = curr->next;
 	if(curr);
-		temp = curr->next;
+		l->head = curr->next;
 		free(curr);
-		curr = temp;
+		// curr = temp;
  }
 
 elem list_remove_at_index(list_t *l, int index) { 

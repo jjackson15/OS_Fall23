@@ -51,7 +51,6 @@ int main() {
   list_print(mylist);
 	printf("\n");
 
-  mylist = list_alloc();
 	list_add_to_front(mylist, 81);
   list_add_to_back(mylist, 4);
   list_add_to_front(mylist, 308);
@@ -95,7 +94,6 @@ int main() {
   printf("Is %d in the list?: %d\n", 10, list_is_in(mylist, 10));
 	printf("Is %d in the list?: %d\n", 15, list_is_in(mylist, 15));
 
-	mylist = list_alloc();
   list_add_to_front(mylist, 54);
   list_add_to_front(mylist, 57);
   list_add_to_front(mylist, 29);
@@ -120,7 +118,6 @@ int main() {
 	printf("\n");
   printf("The list length is: %d\n", list_length(mylist));
 
-	mylist = list_alloc();
 	list_add_to_front(mylist, 4);
   list_add_at_index(mylist, 21, 1);
   list_add_at_index(mylist, 65, 1);
@@ -142,6 +139,11 @@ int main() {
   list_remove_at_index(mylist, 2);
 	printf("This is the list with index 2 removed: ");
 	list_print(mylist);
+	printf("\n");
+
+	list_free(mylist);
+	printf("Free the list: ");
+  list_print(mylist);
 	printf("\n");
 
 	mylist = list_alloc();
