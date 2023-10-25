@@ -45,13 +45,13 @@ pid_t pid;
 // }
 void signal_handler(int signo) {
     if (signo == SIGINT) {
-			printf("\n")
+	    printf("\n");
     }
 }
 
 void kill_process(pid_t pid){
 	kill(pid, SIGTERM);
-  printf("Process terminated: Execution time exceeded the limit.\n");
+  	printf("Process terminated: Execution time exceeded the limit.\n");
 }
 
 int main() {
